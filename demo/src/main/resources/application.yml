@@ -1,2 +1,12 @@
 server:
   port: 8080
+
+spring:
+  datasource:
+    url:
+    username: root
+    password: 123
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    xa:
+      properties:
+        userInformationSchema: true  #按照码云文档说明: MySQL数据库表和列字段有说明、生成文档没有说明
