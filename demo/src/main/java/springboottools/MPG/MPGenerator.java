@@ -29,16 +29,16 @@ public class MPGenerator {
     /**
      * 实体父类
      */
-    private static final String DEFAULT_ENTITY_SUPERE_CLASS = "com.gzstrong.cloud.common.data.entity.SnowFlakeEntity";//""com.gzstrong.cloud.bus.jdbc.pojo.BaseModel";
+    private static final String DEFAULT_ENTITY_SUPERE_CLASS = "entity.SnowFlakeEntity";
 
     /**
      * 实体和父类公用字段
      */
     private static final String[] DEFAULT_ENTITY_COMMON_COLUMNS = new String[]{"id", "del_flag", "create_user_id", "create_time", "update_user_id", "update_time","dept_id","tenant_id","create_user_name","update_user_name"};
 
-    private static final String DEFAULT_URL = "jdbc:mysql://192.168.197.62:3308/sc_cloud_maas?useUnicode=true&characterEncoding=utf-8&useSSL=false";
+    private static final String DEFAULT_URL = "jdbc:mysql://127.0.0.1:3306/table?useUnicode=true&characterEncoding=utf-8&useSSL=false";
     private static final String DEFAULT_USERNAME = "root";
-    private static final String DEFAULT_PASSWORD = "Gzsc@601";
+    private static final String DEFAULT_PASSWORD = "123456";
 
 
     private static boolean DEFAULT_IS_NEED_ENTITY_SUPER_CLASS = true;
