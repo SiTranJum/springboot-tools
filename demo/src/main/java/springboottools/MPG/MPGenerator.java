@@ -9,6 +9,7 @@ import com.baomidou.mybatisplus.generator.config.*;
 import com.baomidou.mybatisplus.generator.config.converts.MySqlTypeConvert;
 import com.baomidou.mybatisplus.generator.config.po.TableInfo;
 import com.baomidou.mybatisplus.generator.config.rules.NamingStrategy;
+import com.baomidou.mybatisplus.generator.engine.FreemarkerTemplateEngine;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -34,9 +35,10 @@ public class MPGenerator {
     /**
      * 实体和父类公用字段
      */
-    private static final String[] DEFAULT_ENTITY_COMMON_COLUMNS = new String[]{"id", "del_flag", "create_user_id", "create_time", "update_user_id", "update_time","dept_id","tenant_id","create_user_name","update_user_name"};
+//    private static final String[] DEFAULT_ENTITY_COMMON_COLUMNS = new String[]{"id", "del_flag", "create_user_id", "create_time", "update_user_id", "update_time","dept_id","tenant_id","create_user_name","update_user_name"};
+    private static final String[] DEFAULT_ENTITY_COMMON_COLUMNS = new String[]{"id"};
 
-    private static final String DEFAULT_URL = "jdbc:mysql://127.0.0.1:3306/table?useUnicode=true&characterEncoding=utf-8&useSSL=false";
+    private static final String DEFAULT_URL = "jdbc:mysql://127.0.0.1:3306/lam-bop-dev?useUnicode=true&characterEncoding=utf-8&useSSL=false";
     private static final String DEFAULT_USERNAME = "root";
     private static final String DEFAULT_PASSWORD = "123456";
 
@@ -46,7 +48,7 @@ public class MPGenerator {
     /**
      * 数据库配置四要素
      */
-    private static String DEFAULT_DRIVER_NAME = "com.mysql.jdbc.Driver";
+    private static String DEFAULT_DRIVER_NAME = "com.mysql.cj.jdbc.Driver";
 
     /**
      * 数据库类型
@@ -90,7 +92,8 @@ public class MPGenerator {
         config.setUrl(DEFAULT_URL);
         config.setUsername(DEFAULT_USERNAME);
         config.setPassword(DEFAULT_PASSWORD);
-        config.setNeedEntitySuperClass(DEFAULT_IS_NEED_ENTITY_SUPER_CLASS);
+//        config.setNeedEntitySuperClass(DEFAULT_IS_NEED_ENTITY_SUPER_CLASS);
+        config.setNeedEntitySuperClass(false);
         config.setDriverName(DEFAULT_DRIVER_NAME);
         config.setDbType(DEFAULT_DBTYPE);
         config.setAuthorName(DEFAULT_AUTHOR_NAME);
@@ -131,7 +134,7 @@ public class MPGenerator {
                 .setBaseColumnList(true)// XML columList
                 .setOpen(false)//生成后打开文件夹
                 .setAuthor(config.getAuthorName())
-                .setSwagger2(true)//自动上生成swagger2注解
+                .setSwagger2(false)//自动上生成swagger2注解
                 // 自定义文件命名，注意 %s 会自动填充表实体属性！
                 .setMapperName("%sMapper")
                 .setXmlName("%sMapper")
@@ -152,7 +155,7 @@ public class MPGenerator {
                         .setRestControllerStyle(true)
                         //.setExclude(new String[]{"test"}) // 排除生成的表
                         // 自定义实体父类
-                        .setSuperEntityClass(config.getEntitySuperClass())
+//                        .setSuperEntityClass(config.getEntitySuperClass())
                         // 自定义实体，公共字段
                         .setSuperEntityColumns(config.getEntityCommonColumns())
                         //.setTableFillList(tableFillList)
@@ -218,7 +221,7 @@ public class MPGenerator {
         /**
          * 指定模板引擎 默认是VelocityTemplateEngine ，需要引入相关引擎依赖
          */
-        //gen.setTemplateEngine(new FreemarkerTemplateEngine());
+        autoGenerator.setTemplateEngine(new FreemarkerTemplateEngine());
 
         /**
          * 模板配置
@@ -226,15 +229,15 @@ public class MPGenerator {
         autoGenerator.setTemplate(
                 // 关闭默认 xml 生成，调整生成 至 根目录
                 new TemplateConfig().setXml(null)
-                        .setController("templates/controller.java.vm")
+//                        .setController("templates/controller.java.vm")
                 // 自定义模板配置，模板可以参考源码 /mybatis-plus/src/main/resources/template 使用 copy
                 // 至您项目 src/main/resources/template 目录下，模板名称也可自定义如下配置：
-                // .setController("...");
-                // .setEntity("...");
-                // .setMapper("...");
-                // .setXml("...");
-                // .setService("...");
-                // .setServiceImpl("...");
+                 .setController("/templates/lam/controller.java")
+                 .setEntity("/templates/lam/entity.java")
+                 .setMapper("/templates/lam/mapper.java")
+                 .setXml("/templates/lam/mapper.xml")
+                 .setService("/templates/lam/service.java")
+                 .setServiceImpl("/templates/lam/serviceImpl.java")
         );
 
     }
@@ -261,7 +264,7 @@ public class MPGenerator {
             this.config.setPrefix(prefix);
         }
 
-        if (isNeedEntitySuperClass) {
+        if (false) {
             if (StrUtil.isNotBlank(entitySuperClass)) {
                 this.config.setEntitySuperClass(entitySuperClass);
             }
