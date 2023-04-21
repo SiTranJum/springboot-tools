@@ -18,7 +18,7 @@ import javax.servlet.http.HttpServletResponse;
 
 
 @RestController
-@RequestMapping("/bop/login")
+@RequestMapping("/login")
 public class LoginController {
 
     @Autowired
@@ -50,7 +50,7 @@ public class LoginController {
             accessToken = jwtTokenUtils.createToken(authentication);
 
 
-//        CustomUserDetails user = (CustomUserDetails)authentication.getPrincipal();
+            user = (CustomUserDetails)authentication.getPrincipal();
 
             // 5 user放入缓存
 //        redisTemplate.opsForValue().set(user.getUsername(),JSON.toJSON(user).toString());
