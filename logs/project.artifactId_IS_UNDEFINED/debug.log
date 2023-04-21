@@ -1,0 +1,34 @@
+2023-04-20 11:22:24,986 [main] INFO  [springboottools.SpringbootToolsApplication] StartupInfoLogger.java:55 - Starting SpringbootToolsApplication using Java 1.8.0_291 on GZNBAA217 with PID 22636 (D:\self\code\tool\springboot-tools\demo\target\classes started by te_zhengshucheng in D:\self\code\tool\springboot-tools)
+2023-04-20 11:22:24,990 [main] INFO  [springboottools.SpringbootToolsApplication] SpringApplication.java:637 - No active profile set, falling back to default profiles: default
+2023-04-20 11:22:25,980 [main] WARN  [org.mybatis.spring.mapper.ClassPathMapperScanner] Logger.java:44 - No MyBatis mapper was found in '[springboottools]' package. Please check your configuration.
+2023-04-20 11:22:26,390 [main] INFO  [o.s.boot.web.embedded.tomcat.TomcatWebServer] TomcatWebServer.java:108 - Tomcat initialized with port(s): 8080 (http)
+2023-04-20 11:22:26,402 [main] INFO  [org.apache.coyote.http11.Http11NioProtocol] DirectJDKLog.java:173 - Initializing ProtocolHandler ["http-nio-8080"]
+2023-04-20 11:22:26,403 [main] INFO  [org.apache.catalina.core.StandardService] DirectJDKLog.java:173 - Starting service [Tomcat]
+2023-04-20 11:22:26,403 [main] INFO  [org.apache.catalina.core.StandardEngine] DirectJDKLog.java:173 - Starting Servlet engine: [Apache Tomcat/9.0.56]
+2023-04-20 11:22:26,586 [main] INFO  [o.a.c.core.ContainerBase.[Tomcat].[localhost].[/]] DirectJDKLog.java:173 - Initializing Spring embedded WebApplicationContext
+2023-04-20 11:22:26,586 [main] INFO  [o.s.b.w.s.c.ServletWebServerApplicationContext] ServletWebServerApplicationContext.java:290 - Root WebApplicationContext: initialization completed in 1542 ms
+2023-04-20 11:22:27,042 [main] INFO  [o.s.security.web.DefaultSecurityFilterChain] DefaultSecurityFilterChain.java:51 - Will secure any request with [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@6b2e0f78, org.springframework.security.web.context.SecurityContextPersistenceFilter@20e6c4dc, org.springframework.security.web.header.HeaderWriterFilter@460510aa, org.springframework.web.filter.CorsFilter@240f6c41, org.springframework.security.web.authentication.logout.LogoutFilter@24361cfc, springboottools.security.JwtAuthenticationTokenFilter@3659d7b1, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@4d2a1da3, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@74075134, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@2015b2cd, org.springframework.security.web.session.SessionManagementFilter@2d000e80, org.springframework.security.web.access.ExceptionTranslationFilter@6972c30a, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@2f98635e]
+2023-04-20 11:22:27,211 [main] WARN  [o.s.b.w.s.c.AnnotationConfigServletWebServerApplicationContext] AbstractApplicationContext.java:591 - Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'dataSource' defined in class path resource [org/springframework/boot/autoconfigure/jdbc/DataSourceConfiguration$Hikari.class]: Bean instantiation via factory method failed; nested exception is org.springframework.beans.BeanInstantiationException: Failed to instantiate [com.zaxxer.hikari.HikariDataSource]: Factory method 'dataSource' threw exception; nested exception is org.springframework.boot.autoconfigure.jdbc.DataSourceProperties$DataSourceBeanCreationException: Failed to determine suitable jdbc url
+2023-04-20 11:22:27,216 [main] INFO  [org.apache.catalina.core.StandardService] DirectJDKLog.java:173 - Stopping service [Tomcat]
+2023-04-20 11:22:27,235 [main] INFO  [o.s.b.a.l.ConditionEvaluationReportLoggingListener] ConditionEvaluationReportLoggingListener.java:136 - 
+
+Error starting ApplicationContext. To display the conditions report re-run your application with 'debug' enabled.
+2023-04-20 11:22:27,291 [main] ERROR [o.s.b.diagnostics.LoggingFailureAnalysisReporter] LoggingFailureAnalysisReporter.java:40 - 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+Failed to configure a DataSource: 'url' attribute is not specified and no embedded datasource could be configured.
+
+Reason: Failed to determine suitable jdbc url
+
+
+Action:
+
+Consider the following:
+	If you want an embedded database (H2, HSQL or Derby), please put it on the classpath.
+	If you have database settings to be loaded from a particular profile you may need to activate it (no profiles are currently active).
+
