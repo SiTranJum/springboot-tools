@@ -10,3 +10,6 @@ spring:
     xa:
       properties:
         userInformationSchema: true  #按照码云文档说明: MySQL数据库表和列字段有说明、生成文档没有说明
+
+tenant:
+  ignore-table-names:
