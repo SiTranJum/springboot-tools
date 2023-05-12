@@ -17,7 +17,7 @@ import java.util.Arrays;
  * @description 拦截异常统一返回
  * @date 2023/2/9 19:00
  */
-@ControllerAdvice(basePackages = "com.java3y.austin.web.controller")
+@ControllerAdvice(basePackages = "springboottools.controller")
 @ResponseBody
 public class ExceptionHandlerAdvice {
     private static final Logger log = LoggerFactory.getLogger(ExceptionHandlerAdvice.class);

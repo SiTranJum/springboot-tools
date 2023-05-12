@@ -30,7 +30,7 @@ import java.util.List;
 @Slf4j
 @Aspect
 @Component
-public class AustinAspect {
+public class UnifyManageAspect {
 
     @Autowired
     private HttpServletRequest request;
@@ -43,7 +43,7 @@ public class AustinAspect {
     /**
      * 只切AustinAspect注解
      */
-    @Pointcut("@within(com.java3y.austin.web.annotation.AustinAspect) || @annotation(com.java3y.austin.web.annotation.AustinAspect)")
+    @Pointcut("@within(springboottools.unifyManage.LogAspect) || @annotation(springboottools.unifyManage.ResultAspect)")
     public void executeService() {
     }
 
